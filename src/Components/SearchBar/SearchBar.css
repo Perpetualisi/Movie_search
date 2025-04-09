@@ -1,4 +1,4 @@
-/* src/Components/SearchBar.css */
+
 
 .search-bar {
     display: flex;
@@ -8,9 +8,9 @@
     margin: 20px 0;
     padding: 10px;
     overflow-x: hidden;
-  }
-  
-  .search-input {
+}
+
+.search-input {
     width: 100%;
     max-width: 350px;
     padding: 12px;
@@ -19,9 +19,10 @@
     border-radius: 5px;
     margin-bottom: 10px;
     box-sizing: border-box;
-  }
-  
-  .search-button {
+    transition: all 0.3s ease; 
+}
+
+.search-button {
     padding: 12px 20px;
     font-size: 16px;
     background-color: #4CAF50;
@@ -29,31 +30,31 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
     width: 100%;
     max-width: 350px;
-  }
-  
-  .search-button:hover {
+}
+
+.search-button:hover {
     background-color: #45a049;
-  }
-  
-  .search-button:focus,
-  .search-input:focus {
+    transform: scale(1.05); 
+}
+
+.search-button:focus,
+.search-input:focus {
     outline: none;
     border-color: #4CAF50;
-  }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 600px) {
+}
+
+
+@media (max-width: 600px) {
     .search-input {
-      width: 90%;
-      font-size: 14px;
+        width: 90%;
+        font-size: 14px;
     }
-  
+
     .search-button {
-      width: 90%;
-      font-size: 14px;
+        width: 90%;
+        font-size: 14px;
     }
-  }
-  
+}
