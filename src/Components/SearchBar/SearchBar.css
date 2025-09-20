@@ -1,60 +1,67 @@
-
-
 .search-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
-    padding: 10px;
-    overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  width: 100%;
 }
 
+.search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  gap: 10px;
+}
+
+/* Input */
 .search-input {
-    width: 100%;
-    max-width: 350px;
-    padding: 12px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    transition: all 0.3s ease; 
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
+.search-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+}
+
+/* Button */
 .search-button {
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; 
-    width: 100%;
-    max-width: 350px;
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .search-button:hover {
-    background-color: #45a049;
-    transform: scale(1.05); 
+  background: #45a049;
+  transform: scale(1.05);
 }
 
-.search-button:focus,
-.search-input:focus {
-    outline: none;
-    border-color: #4CAF50;
+.search-button:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
 }
 
-
+/* Mobile responsiveness */
 @media (max-width: 600px) {
-    .search-input {
-        width: 90%;
-        font-size: 14px;
-    }
+  .search-form {
+    flex-direction: column;
+    gap: 8px;
+  }
 
-    .search-button {
-        width: 90%;
-        font-size: 14px;
-    }
+  .search-input,
+  .search-button {
+    width: 100%;
+    font-size: 14px;
+  }
 }

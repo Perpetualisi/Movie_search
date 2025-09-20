@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './SearchBar.css';
 
@@ -6,7 +5,7 @@ const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
   const handleSearch = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     if (query.trim() !== '') {
       onSearch(query);
       setQuery('');
@@ -15,7 +14,7 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div className="search-bar">
-      <form onSubmit={handleSearch}> 
+      <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"
           placeholder="Search for a movie..."

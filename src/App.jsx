@@ -13,40 +13,47 @@ const App = () => {
   const handleSearch = async (searchQuery) => {
     setQuery(searchQuery);
     setError('');
-    setLoading(true); 
+    setLoading(true);
 
     if (searchQuery) {
       try {
-        const response = await axios.get(`https://www.omdbapi.com/?s=${searchQuery}&apikey=d3f6888c`);
+        const response = await axios.get(
+          `https://www.omdbapi.com/?s=${searchQuery}&apikey=d3f6888c`
+        );
+
         if (response.data.Response === 'True') {
           setMovies(response.data.Search || []);
           setError('');
         } else {
           setMovies([]);
-          setError('No movies found!');
+          setError('No movies found! Try another search.');
         }
-      } catch (error) {
-        console.error('Error fetching movie data:', error);
-        setError('There was an error fetching the data.');
+      } catch (err) {
+        console.error('Error fetching movie data:', err);
+        setError('Oops! Something went wrong. Please try again later.');
       }
     } else {
-      setMovies([]); 
+      setMovies([]);
       setError('');
     }
 
-    setLoading(false); 
+    setLoading(false);
   };
 
   return (
     <div className="App">
-      <h1>Movie Search</h1>
+      <h1 className="app-title">🎬 Movie Search</h1>
       <SearchBar onSearch={handleSearch} />
-      
-      {loading && <p>Loading...</p>}
+
+      {loading && (
+        <div className="loading-container">
+          <div className="spinner"></div>
+          <p>Loading movies...</p>
+        </div>
+      )}
 
       {error && !loading && <p className="error-message">{error}</p>}
 
-      
       {!loading && movies.length > 0 && !error && <MovieList movies={movies} />}
     </div>
   );
